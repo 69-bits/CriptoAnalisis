@@ -1,4 +1,6 @@
 #pragma once
+
+// Librerías necesarias
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,3 +8,4 @@
 #include <cctype>
 #include <iomanip>
 #include <sstream>
+#include <bitset>

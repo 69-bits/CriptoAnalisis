@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="AsciiBinary.h" />
     <ClInclude Include="CesarEncryption.h" />
+    <ClInclude Include="DES.h" />
     <ClInclude Include="Prerequisites.h" />
     <ClInclude Include="XOREncoder.h" />
   </ItemGroup>

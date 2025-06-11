@@ -1,39 +1,40 @@
 #include "Prerequisites.h"
 #include "XOREncoder.h"
 #include "AsciiBinary.h"
+#include "DES.h"
 
-int main() {
-  /*XOREncoder encoder;
+int
+main() {
+  //std::bitset<64> ciphertext("0001001000110100010101100111100010011010101111001101111011110001");
+  std::bitset<64> key("0001001100110100010101110111100110011011101111001101111111110001");
 
-  std::string mensaje = "Garfield";
-  std::string clave = "clave";
+  std::string mensaje = "Garfield SOS";
 
+  while (mensaje.size() % 8 != 0) {
+    mensaje += '\0';
+  }
+
+  std::vector<std::bitset<64>> cipherBlocks;
   std::cout << "Mensaje original: " << mensaje << std::endl;
-  std::string mensajeCodificado = encoder.encode(mensaje, clave);
+  std::cout << "Cifrado en hexadecimal:\n";
 
-  std::cout << "Mensaje codificado: " << mensajeCodificado << std::endl;
-  std::string decodificado = encoder.encode(mensajeCodificado, clave);
+  DES des(key);
+  for (size_t i = 0; i < mensaje.size(); i += 8) {
+    std::string block = mensaje.substr(i, 8);
+    auto blockBits = des.stringToBitset64(block);
+    auto encryptedBlock = des.encode(blockBits);
+    cipherBlocks.push_back(encryptedBlock);
+    std::cout << std::uppercase << std::setw(16) << std::setfill('0')
+      << encryptedBlock.to_ullong() << " ";
 
-  std::cout << "Mensaje decodificado: " << decodificado << std::endl;
+  }
 
-  std::vector<unsigned char> bytesCifrados(mensaje.begin(), mensaje.end());
+  std::string decryptedMessage;
+  for (const auto& block : cipherBlocks) {
+    auto decryptedBlock = des.decode(block);
+    decryptedMessage += des.bitset64ToString(decryptedBlock);
+  }
 
-  std::cout << "\n--- Fuerza bruta 1 byte con filtro ---\n";
-  encoder.bruteForce_1Byte(bytesCifrados);
-
-  std::cout << "\n--- Fuerza bruta 2 byte con filtro ---\n";
-  encoder.bruteForce_2Byte(bytesCifrados);
-
-  encoder.printHex(mensajeCodificado);
-  return 0;*/
-
-  AsciiBinary asciiBinary;
-  std::string mensaje = "Garfield";
-  std::string mensajeBinario = asciiBinary.stringToBinary(mensaje);
-  std::cout << "Mensaje Binario: " << mensajeBinario << std::endl;
-  std::string mensajeDecodificado = asciiBinary.binaryToString(mensajeBinario);
-  std::cout << "Mensaje Decodificado: " << mensajeDecodificado << std::endl;
-
-  return 0;
+  std::cout << "\nMensaje descifrado: " << decryptedMessage << std::endl;
 }
 
