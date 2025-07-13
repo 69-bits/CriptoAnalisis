@@ -21,6 +21,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->btnCifrar->setEnabled(false);
     ui->btnGuardar->setEnabled(false);
+
+    this->setFixedSize(this->size());
+
+    ui->comboBox->addItem("Cifrado César");
+    ui->comboBox->addItem("Cifrado ASCII to Binary");
+    ui->comboBox->addItem("Cifrado DES");
 }
 
 MainWindow::~MainWindow()
@@ -58,15 +64,60 @@ void MainWindow::abrirArchivo() {
 
 void MainWindow::cifrarTexto() {
 
-    qDebug() << "Vamos a echarnos unos cifrados";
+    int userSelection = ui->comboBox->currentIndex();
+    QString plainText;
+    std::string cypherText;
 
-    QString plainText = ui->textOriginal->toPlainText();
+    switch (userSelection) {
+    case 0:
+        qDebug() << "Vamos a echarnos unos cifrados";
 
-    std::string cypherText = encryption.EncryptionCaesar(plainText.toStdString(), 3);
+        plainText = ui->textOriginal->toPlainText();
 
-    ui->textResultado->setPlainText(QString::fromStdString(cypherText));
+        cypherText = encryptionCesar.EncryptionCaesar(plainText.toStdString(), 3);
 
-    ui->btnGuardar->setEnabled(true);
+        ui->textResultado->setPlainText(QString::fromStdString(cypherText));
+
+        ui->btnGuardar->setEnabled(true);
+
+        break;
+    case 1:
+        qDebug() << "Vamos a echarnos unos cifrados";
+
+        plainText = ui->textOriginal->toPlainText();
+
+        cypherText = encryptionAscii.stringToBinary(plainText.toStdString());
+
+        ui->textResultado->setPlainText(QString::fromStdString(cypherText));
+
+        ui->btnGuardar->setEnabled(true);
+
+        break;
+    case 2:
+        qDebug() << "Vamos a echarnos unos cifrados";
+
+        plainText = ui->textOriginal->toPlainText();
+
+        cypherText = encryptionAscii.stringToBinary(plainText.toStdString());
+
+        ui->textResultado->setPlainText(QString::fromStdString(cypherText));
+
+        ui->btnGuardar->setEnabled(true);
+        break;
+    case 3:
+        qDebug() << "Vamos a echarnos unos cifrados";
+
+        plainText = ui->textOriginal->toPlainText();
+
+        cypherText = encryptionDES.stringToBitset64(plainText.toStdString()).to_string();
+
+        ui->textResultado->setPlainText(QString::fromStdString(cypherText));
+
+        ui->btnGuardar->setEnabled(true);
+        break;
+    default:
+        break;
+    }
 }
 
 void MainWindow::guardarArchivo() {

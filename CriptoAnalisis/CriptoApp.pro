@@ -13,7 +13,9 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    AsciiBinary.h \
     CesarEncryption.h \
+    DES.h \
     Prerequisites.h \
     mainwindow.h
 

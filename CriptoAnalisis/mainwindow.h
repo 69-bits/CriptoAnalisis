@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include "CesarEncryption.h"
+#include "AsciiBinary.h"
+#include "DES.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,7 +22,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    CaesarEncryption encryption;
+    CaesarEncryption encryptionCesar;
+    AsciiBinary encryptionAscii;
+    DES encryptionDES;
 
 private slots:
     void abrirArchivo();
