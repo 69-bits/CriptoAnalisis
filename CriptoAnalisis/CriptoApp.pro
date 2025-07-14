@@ -17,6 +17,8 @@ HEADERS += \
     CesarEncryption.h \
     DES.h \
     Prerequisites.h \
+    Vigenere.h \
+    XORE.h \
     mainwindow.h
 
 FORMS += \

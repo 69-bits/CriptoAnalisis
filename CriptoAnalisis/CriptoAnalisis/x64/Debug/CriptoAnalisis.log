@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\jhona\OneDrive\Documentos\GitHub\CriptoAnalisis\CriptoAnalisis\CriptoAnalisis\DES.h(86,54): warning C4805: '|': combinación no segura del tipo 'int' y el tipo 'bool' en la operación
+  (compilando archivo de origen "main.cpp")
+  
+C:\Users\jhona\OneDrive\Documentos\GitHub\CriptoAnalisis\CriptoAnalisis\CriptoAnalisis\DES.h(88,50): warning C4805: '|': combinación no segura del tipo 'int' y el tipo 'bool' en la operación
+  (compilando archivo de origen "main.cpp")
+  
+  CriptoAnalisis.vcxproj -> C:\Users\jhona\OneDrive\Documentos\GitHub\CriptoAnalisis\CriptoAnalisis\x64\Debug\CriptoAnalisis.exe

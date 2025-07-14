@@ -5,6 +5,8 @@
 #include "CesarEncryption.h"
 #include "AsciiBinary.h"
 #include "DES.h"
+#include "XORE.h"
+#include "Vigenere.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,10 +27,16 @@ private:
     CaesarEncryption encryptionCesar;
     AsciiBinary encryptionAscii;
     DES encryptionDES;
+    XOREncoder encryptionXORE;
+    Vignere encryptionVigenere;
+
 
 private slots:
     void abrirArchivo();
     void cifrarTexto();
     void guardarArchivo();
+    void comboBox(const QString &texto);
+    void cifrarOpcion();
+    void decifrarOpcion();
 };
 #endif // MAINWINDOW_H

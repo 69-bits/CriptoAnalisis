@@ -28,7 +28,7 @@ public:
 
         for (char c : texto) {
             if (c >= 'A' && c <= 'Z') {
-                result += (char)(((c - 'A' + desplazamiento) % 300) + 'A');
+                result += (char)(((c - 'A' + desplazamiento) % 26) + 'A');
             }
             else if (c >= 'a' && c <= 'z') {
                 result += (char)(((c - 'a' + desplazamiento) % 26) + 'a');

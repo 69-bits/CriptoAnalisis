@@ -18,16 +18,28 @@
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="btcifrar">
         <property name="text">
-         <string>PushButton</string>
+         <string>Cifrar</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="btDescifrar">
         <property name="text">
-         <string>PushButton</string>
+         <string>Descifrar</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -92,10 +104,13 @@
            <x>10</x>
            <y>30</y>
            <width>701</width>
-           <height>191</height>
+           <height>215</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QTextEdit" name="textEdit"/>
+          </item>
           <item>
            <widget class="QPushButton" name="btnCifrar">
             <property name="text">
