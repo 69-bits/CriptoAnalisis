@@ -32,6 +32,9 @@
       </item>
       <item>
        <widget class="QPushButton" name="btDescifrar">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>Descifrar</string>
         </property>

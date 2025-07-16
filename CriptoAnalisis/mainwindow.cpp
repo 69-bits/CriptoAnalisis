@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QButtonGroup>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -36,6 +38,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->btcifrar->setCheckable(true);
     ui->btDescifrar->setCheckable(true);
+    ui->btcifrar->setChecked(true); // Por defecto está activo Cifrar
+
+    ui->btcifrar->setStyleSheet("QPushButton:checked { background-color: #4CAF50; color: white; }");
+    ui->btDescifrar->setStyleSheet("QPushButton:checked { background-color: #4CAF50; color: white; }");
+
+    QButtonGroup *modoGrupo = new QButtonGroup(this);
+    modoGrupo->addButton(ui->btcifrar);
+    modoGrupo->addButton(ui->btDescifrar);
+    modoGrupo->setExclusive(true);
+
 
     ui->textEdit->hide();
 }
@@ -51,7 +63,6 @@ void MainWindow::abrirArchivo() {
 
     QString ruta = QFileDialog::getOpenFileName(this, "Abrir archivo", "", "Text Files (*.txt)");
     if(!ruta.isEmpty()) {
-
         qDebug() << "Archivo seleccionado:" << ruta;
 
         QFile archivo(ruta);
@@ -78,12 +89,6 @@ void MainWindow::cifrarTexto() {
     int userSelection = ui->comboBox->currentIndex();
     QString plainText;
     std::string cypherText;
-
-    if (!ui->btcifrar->isChecked() && !ui->btDescifrar->isChecked()) {
-        QMessageBox::warning(this, "Modo no seleccionado", "Debes seleccionar Cifrar o Descifrar.");
-        return;
-    }
-
 
     if(ui->btcifrar->isChecked())
     {
@@ -338,7 +343,6 @@ void MainWindow::comboBox(const QString &texto){
 void MainWindow::cifrarOpcion(){
     ui->btnCifrar->setText("Pulsa para Cifrar");
     ui->groupBox_3->setTitle("Una vez tenga su archivo, pulse en el botón para cifrar.");
-
 }
 
 void MainWindow::decifrarOpcion(){
