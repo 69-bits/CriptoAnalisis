@@ -9,17 +9,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp \
-    mainwindow.cpp
+    src/main.cpp \
+    src/mainwindow.cpp
 
 HEADERS += \
-    AsciiBinary.h \
-    CesarEncryption.h \
-    DES.h \
-    Prerequisites.h \
-    Vigenere.h \
-    XORE.h \
-    mainwindow.h
+    include/CesarEncryption.h \
+    include/DES.h \
+    include/Prerequisites.h \
+    include/Vigenere.h \
+    include/XORE.h \
+    include/mainwindow.h
 
 FORMS += \
     mainwindow.ui
