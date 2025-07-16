@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "include/mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QFileDialog>
 #include <QMessageBox>
@@ -90,25 +90,29 @@ void MainWindow::cifrarTexto() {
     QString plainText;
     std::string cypherText;
 
+
     if(ui->btcifrar->isChecked())
     {
         switch (userSelection) {
-        case 0:
+        case 0: {
             // Cifrado César
             plainText = ui->textOriginal->toPlainText();
-            cypherText = encryptionCesar.EncryptionCaesar(plainText.toStdString(), 4);
+            QString desplazamiento = ui->textEdit->toPlainText();
+
+
+            cypherText = encryptionCesar.EncryptionCaesar(plainText.toStdString(), desplazamiento.toInt());
             ui->textResultado->setPlainText(QString::fromStdString(cypherText));
             ui->btnGuardar->setEnabled(true);
             break;
-
-        case 1:
+        }
+        case 1: {
             // ASCII a binario
             plainText = ui->textOriginal->toPlainText();
             cypherText = encryptionAscii.stringToBinary(plainText.toStdString());
             ui->textResultado->setPlainText(QString::fromStdString(cypherText));
             ui->btnGuardar->setEnabled(true);
             break;
-
+        }
         case 2: {
             // Cifrado DES con clave fija
             qDebug() << "Cifrado DES seleccionado";
@@ -206,24 +210,26 @@ void MainWindow::cifrarTexto() {
   }
     else if (ui->btDescifrar->isChecked()){
         switch (userSelection) {
-        case 0:
+      case 0: {
             // Descifrado César
             qDebug() << "Descifrado CESAR seleccionado";
 
             plainText = ui->textOriginal->toPlainText();
-            cypherText = encryptionCesar.DecodeCaesar(plainText.toStdString(), 4);
+            QString desplazamiento = ui->textEdit->toPlainText();
+
+            cypherText = encryptionCesar.DecodeCaesar(plainText.toStdString(), desplazamiento.toInt());
             ui->textResultado->setPlainText(QString::fromStdString(cypherText));
             ui->btnGuardar->setEnabled(true);
             break;
-
-        case 1:
+      }
+      case 1:{
             // Binario a ASCII
             plainText = ui->textOriginal->toPlainText();
             cypherText = encryptionAscii.binaryToString(plainText.toStdString());
             ui->textResultado->setPlainText(QString::fromStdString(cypherText));
             ui->btnGuardar->setEnabled(true);
             break;
-
+      }
         case 2: {
             // Descifrado DES
             qDebug() << "Descifrado DES seleccionado";
@@ -332,7 +338,7 @@ void MainWindow::guardarArchivo() {
 }
 
 void MainWindow::comboBox(const QString &texto){
-    if(texto == "Cifrado XOREncoder" || texto == "Cifrado Vigenere"){
+    if(texto == "Cifrado XOREncoder" || texto == "Cifrado Vigenere" || texto == "Cifrado César"){
         ui->textEdit->show();
     }
     else{
