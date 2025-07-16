@@ -6,7 +6,8 @@ CriptoApp - Segundo Parcial QT
 
 ## 🧠 ¿Qué hace esta app?
 
-CriptoApp permite **cifrar y descifrar archivos .txt** usando los siguientes algoritmos:
+CriptoApp permite **cifrar y descifrar archivos .txt** usando los siguientes algoritmos:[![Uploading Captura de aplicacion.png…]()
+](https://github.com/user-attachments/assets/5dfd832d-d8e3-4297-9fa4-c8e73d4a54ef)
 
 | Algoritmo        | Cifrado | Descifrado | Detalles                           |
 |------------------|:-------:|:----------:|------------------------------------|
