@@ -8,7 +8,7 @@ CriptoApp permite **cifrar y descifrar archivos .txt** usando los siguientes alg
 
 | Algoritmo        | Cifrado | Descifrado | Detalles                           |
 |------------------|:-------:|:----------:|------------------------------------|
-| César            | ✅      | ✅         | Con desplazamiento fijo de `3`.   |
+| César            | ✅      | ✅         | Con desplazamiento modificable.   |
 | ASCII → Binario  | ✅      | ✅         | Convierte texto a binario y viceversa. |
 | DES              | ✅      | ✅         | Usa clave fija de 64 bits.        |
 | XOR Encoder      | ✅      | ✅         | Requiere clave del usuario.       |
