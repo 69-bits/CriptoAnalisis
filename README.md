@@ -2,8 +2,6 @@ CriptoApp - Segundo Parcial QT
 
 > Aplicación de escritorio desarrollada en Qt para cifrado y descifrado de archivos de texto utilizando múltiples algoritmos criptográficos.
 
-![CriptoApp Screenshot]("C:/Users/jhona/Downloads/Captura de aplicacion.png")
-
 ## 🧠 ¿Qué hace esta app?
 
 CriptoApp permite **cifrar y descifrar archivos .txt** usando los siguientes algoritmos:
